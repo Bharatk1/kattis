@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+public class Spavanac {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int h = sc.nextInt(), m = sc.nextInt(), nt = 0;
+
+        if (h >= 0 && h <= 23 && m >= 0 && m <= 59)
+            nt = m + 15;
+        if (nt >= 60)
+            System.out.printf("%d %d" + h, (nt - 60));
+        else
+            System.out.println((h - 1) + " " + nt);
+
+    }
+
+}

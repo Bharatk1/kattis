@@ -1,0 +1,324 @@
+!SESSION 2019-04-29 14:20:18.728 -----------------------------------------------
+eclipse.buildId=4.6.3.M20170301-0400
+java.fullversion=JRE 1.8.0 IBM J9 2.8 Windows 7 amd64-64 Compressed References 20161013_322271 (JIT enabled, AOT enabled)
+J9VM - R28_Java8_SR3_20161013_1635_B322271
+JIT  - tr.r14.java.green_20161011_125790
+GC   - R28_Java8_SR3_20161013_1635_B322271_CMPRSS
+J9CL - 20161013_322271
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=sv_SE
+Framework arguments:  -pluginCustomization plugin_customization.ini -product org.eclipse.epp.package.jee.product -showLocation
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -pluginCustomization plugin_customization.ini -product org.eclipse.epp.package.jee.product -showLocation
+
+!ENTRY org.eclipse.ui 2 0 2019-04-29 14:20:38.197
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2019-04-29 14:20:38.197
+!MESSAGE Commands should really have a category: plug-in='net.sf.eclipsecs.ui', id='CheckstylePlugin.PurgeCaches', categoryId='net.sf.eclipsecs'
+
+!ENTRY org.eclipse.ui 2 0 2019-04-29 14:20:39.731
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2019-04-29 14:20:39.731
+!MESSAGE Commands should really have a category: plug-in='net.sf.eclipsecs.ui', id='CheckstylePlugin.PurgeCaches', categoryId='net.sf.eclipsecs'
+
+!ENTRY org.eclipse.jface 2 0 2019-04-29 14:20:43.984
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-04-29 14:20:43.984
+!MESSAGE A conflict occurred for ALT+CTRL+R:
+Binding(ALT+CTRL+R,
+	ParameterizedCommand(Command(org.eclipse.team.svn.ui.command.CompareWithRevisionCommand,URL...,
+		,
+		Category(org.eclipse.team.svn.ui.command.category,SVN,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@52e01fe4,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+R,
+	ParameterizedCommand(Command(org.python.pydev.debug.setnext,Set Next Statement,
+		,
+		Category(org.python.pydev.ui.category.run,PyDev - Run,Python run category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@cf2d5d28,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-04-29 14:20:43.984
+!MESSAGE A conflict occurred for ALT+CTRL+T:
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.tm.terminal.connector.local.command.launch,Open Local Terminal on Selection,
+		,
+		Category(org.eclipse.tm.terminal.view.ui.commands.category,Terminal Commands,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@22319e78,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.team.svn.ui.command.EditPropertiesCommand,Show Properties,
+		,
+		Category(org.eclipse.team.svn.ui.command.category,SVN,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5bf2c07e,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.ui 4 4 2019-04-29 14:20:46.578
+!MESSAGE Referenced part does not exist yet: com.ibm.etools.ui.navigator.SDExplorer.
+
+!ENTRY org.eclipse.egit.ui 2 0 2019-04-29 14:20:50.596
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'Y:\'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.atlassian.connector.eclipse.directclickthrough.ui 2 0 2019-04-29 14:20:55.144
+!MESSAGE failed SocketConnector@127.0.0.1:51235: java.net.BindException: Address already in use: JVM_Bind
+
+!ENTRY com.atlassian.connector.eclipse.directclickthrough.ui 2 0 2019-04-29 14:20:55.146
+!MESSAGE failed Server@1126838f: java.net.BindException: Address already in use: JVM_Bind
+
+!ENTRY com.atlassian.connector.eclipse.directclickthrough.ui 1 0 2019-04-29 14:20:55.178
+!MESSAGE Unable to run embedded web server, Direct Click Through will not be available
+!STACK 0
+java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketBind(DualStackPlainSocketImpl.java:117)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:417)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:201)
+	at java.net.ServerSocket.bind(ServerSocket.java:444)
+	at java.net.ServerSocket.<init>(ServerSocket.java:258)
+	at org.mortbay.jetty.bio.SocketConnector.newServerSocket(SocketConnector.java:80)
+	at org.mortbay.jetty.bio.SocketConnector.open(SocketConnector.java:73)
+	at org.mortbay.jetty.AbstractConnector.doStart(AbstractConnector.java:283)
+	at org.mortbay.jetty.bio.SocketConnector.doStart(SocketConnector.java:147)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.Server.doStart(Server.java:235)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at com.atlassian.connector.eclipse.internal.directclickthrough.ui.DirectClickThroughUiPlugin$2.runImpl(DirectClickThroughUiPlugin.java:90)
+	at com.atlassian.connector.eclipse.internal.core.jobs.JobWithStatus.run(JobWithStatus.java:50)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.jface.text 2 0 2019-04-29 14:25:49.481
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2019-04-29 14:25:49.481
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.jface.text 2 0 2019-04-29 14:25:49.651
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2019-04-29 14:25:49.651
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+!SESSION 2019-04-30 12:51:39.368 -----------------------------------------------
+eclipse.buildId=4.6.3.M20170301-0400
+java.fullversion=JRE 1.8.0 IBM J9 2.8 Windows 7 amd64-64 Compressed References 20161013_322271 (JIT enabled, AOT enabled)
+J9VM - R28_Java8_SR3_20161013_1635_B322271
+JIT  - tr.r14.java.green_20161011_125790
+GC   - R28_Java8_SR3_20161013_1635_B322271_CMPRSS
+J9CL - 20161013_322271
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=sv_SE
+Framework arguments:  -pluginCustomization plugin_customization.ini -product org.eclipse.epp.package.jee.product -showLocation
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -pluginCustomization plugin_customization.ini -product org.eclipse.epp.package.jee.product -showLocation
+
+!ENTRY org.eclipse.ui 2 0 2019-04-30 12:52:35.019
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2019-04-30 12:52:35.020
+!MESSAGE Commands should really have a category: plug-in='net.sf.eclipsecs.ui', id='CheckstylePlugin.PurgeCaches', categoryId='net.sf.eclipsecs'
+
+!ENTRY org.eclipse.ui 2 0 2019-04-30 12:52:36.856
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2019-04-30 12:52:36.856
+!MESSAGE Commands should really have a category: plug-in='net.sf.eclipsecs.ui', id='CheckstylePlugin.PurgeCaches', categoryId='net.sf.eclipsecs'
+
+!ENTRY org.eclipse.jface 2 0 2019-04-30 12:52:40.891
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-04-30 12:52:40.891
+!MESSAGE A conflict occurred for ALT+CTRL+T:
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.tm.terminal.connector.local.command.launch,Open Local Terminal on Selection,
+		,
+		Category(org.eclipse.tm.terminal.view.ui.commands.category,Terminal Commands,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@47a2b569,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.team.svn.ui.command.EditPropertiesCommand,Show Properties,
+		,
+		Category(org.eclipse.team.svn.ui.command.category,SVN,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@e867df12,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-04-30 12:52:40.891
+!MESSAGE A conflict occurred for ALT+CTRL+R:
+Binding(ALT+CTRL+R,
+	ParameterizedCommand(Command(org.eclipse.team.svn.ui.command.CompareWithRevisionCommand,URL...,
+		,
+		Category(org.eclipse.team.svn.ui.command.category,SVN,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2ac7abbd,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+R,
+	ParameterizedCommand(Command(org.python.pydev.debug.setnext,Set Next Statement,
+		,
+		Category(org.python.pydev.ui.category.run,PyDev - Run,Python run category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@f557883c,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.atlassian.connector.eclipse.directclickthrough.ui 2 0 2019-04-30 12:52:52.982
+!MESSAGE failed SocketConnector@127.0.0.1:51235: java.net.BindException: Address already in use: JVM_Bind
+
+!ENTRY com.atlassian.connector.eclipse.directclickthrough.ui 2 0 2019-04-30 12:52:52.982
+!MESSAGE failed Server@4fa3fc5b: java.net.BindException: Address already in use: JVM_Bind
+
+!ENTRY com.atlassian.connector.eclipse.directclickthrough.ui 1 0 2019-04-30 12:52:52.992
+!MESSAGE Unable to run embedded web server, Direct Click Through will not be available
+!STACK 0
+java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketBind(DualStackPlainSocketImpl.java:117)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:417)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:201)
+	at java.net.ServerSocket.bind(ServerSocket.java:444)
+	at java.net.ServerSocket.<init>(ServerSocket.java:258)
+	at org.mortbay.jetty.bio.SocketConnector.newServerSocket(SocketConnector.java:80)
+	at org.mortbay.jetty.bio.SocketConnector.open(SocketConnector.java:73)
+	at org.mortbay.jetty.AbstractConnector.doStart(AbstractConnector.java:283)
+	at org.mortbay.jetty.bio.SocketConnector.doStart(SocketConnector.java:147)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.Server.doStart(Server.java:235)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at com.atlassian.connector.eclipse.internal.directclickthrough.ui.DirectClickThroughUiPlugin$2.runImpl(DirectClickThroughUiPlugin.java:90)
+	at com.atlassian.connector.eclipse.internal.core.jobs.JobWithStatus.run(JobWithStatus.java:50)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.jface.text 2 0 2019-04-30 12:53:41.771
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2019-04-30 12:53:41.771
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.jface.text 2 0 2019-04-30 12:54:39.811
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2019-04-30 12:54:39.811
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+!SESSION 2019-05-07 11:31:31.177 -----------------------------------------------
+eclipse.buildId=4.6.3.M20170301-0400
+java.fullversion=JRE 1.8.0 IBM J9 2.8 Windows 7 amd64-64 Compressed References 20161013_322271 (JIT enabled, AOT enabled)
+J9VM - R28_Java8_SR3_20161013_1635_B322271
+JIT  - tr.r14.java.green_20161011_125790
+GC   - R28_Java8_SR3_20161013_1635_B322271_CMPRSS
+J9CL - 20161013_322271
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=sv_SE
+Framework arguments:  -pluginCustomization plugin_customization.ini -product org.eclipse.epp.package.jee.product -showLocation
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -pluginCustomization plugin_customization.ini -product org.eclipse.epp.package.jee.product -showLocation
+
+!ENTRY org.eclipse.ui 2 0 2019-05-07 11:31:40.141
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2019-05-07 11:31:40.141
+!MESSAGE Commands should really have a category: plug-in='net.sf.eclipsecs.ui', id='CheckstylePlugin.PurgeCaches', categoryId='net.sf.eclipsecs'
+
+!ENTRY org.eclipse.ui 2 0 2019-05-07 11:31:40.996
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2019-05-07 11:31:40.996
+!MESSAGE Commands should really have a category: plug-in='net.sf.eclipsecs.ui', id='CheckstylePlugin.PurgeCaches', categoryId='net.sf.eclipsecs'
+
+!ENTRY org.eclipse.jface 2 0 2019-05-07 11:31:43.792
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-05-07 11:31:43.792
+!MESSAGE A conflict occurred for ALT+CTRL+T:
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.tm.terminal.connector.local.command.launch,Open Local Terminal on Selection,
+		,
+		Category(org.eclipse.tm.terminal.view.ui.commands.category,Terminal Commands,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@79d02700,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.team.svn.ui.command.EditPropertiesCommand,Show Properties,
+		,
+		Category(org.eclipse.team.svn.ui.command.category,SVN,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@d2e6cefb,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-05-07 11:31:43.792
+!MESSAGE A conflict occurred for ALT+CTRL+R:
+Binding(ALT+CTRL+R,
+	ParameterizedCommand(Command(org.eclipse.team.svn.ui.command.CompareWithRevisionCommand,URL...,
+		,
+		Category(org.eclipse.team.svn.ui.command.category,SVN,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@c066f8d1,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+R,
+	ParameterizedCommand(Command(org.python.pydev.debug.setnext,Set Next Statement,
+		,
+		Category(org.python.pydev.ui.category.run,PyDev - Run,Python run category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@d0a3e40,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.atlassian.connector.eclipse.directclickthrough.ui 2 0 2019-05-07 11:31:52.771
+!MESSAGE failed SocketConnector@127.0.0.1:51235: java.net.BindException: Address already in use: JVM_Bind
+
+!ENTRY com.atlassian.connector.eclipse.directclickthrough.ui 2 0 2019-05-07 11:31:52.771
+!MESSAGE failed Server@60f7bbfe: java.net.BindException: Address already in use: JVM_Bind
+
+!ENTRY com.atlassian.connector.eclipse.directclickthrough.ui 1 0 2019-05-07 11:31:52.771
+!MESSAGE Unable to run embedded web server, Direct Click Through will not be available
+!STACK 0
+java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketBind(DualStackPlainSocketImpl.java:117)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:417)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:201)
+	at java.net.ServerSocket.bind(ServerSocket.java:444)
+	at java.net.ServerSocket.<init>(ServerSocket.java:258)
+	at org.mortbay.jetty.bio.SocketConnector.newServerSocket(SocketConnector.java:80)
+	at org.mortbay.jetty.bio.SocketConnector.open(SocketConnector.java:73)
+	at org.mortbay.jetty.AbstractConnector.doStart(AbstractConnector.java:283)
+	at org.mortbay.jetty.bio.SocketConnector.doStart(SocketConnector.java:147)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.Server.doStart(Server.java:235)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at com.atlassian.connector.eclipse.internal.directclickthrough.ui.DirectClickThroughUiPlugin$2.runImpl(DirectClickThroughUiPlugin.java:90)
+	at com.atlassian.connector.eclipse.internal.core.jobs.JobWithStatus.run(JobWithStatus.java:50)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.jface.text 2 0 2019-05-07 11:35:26.396
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2019-05-07 11:35:26.396
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.jface.text 2 0 2019-05-07 11:42:12.977
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2019-05-07 11:42:12.977
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.recommenders.rcp 4 18 2019-05-07 12:03:40.353
+!MESSAGE Failed to resolve selection in ‘=Kattis/src<{Tarifa.java’ at offset 115.
+!STACK 0
+org.eclipse.recommenders.utils.Logs$LogTraceException
+	at org.eclipse.recommenders.utils.Logs$LogTraceException.newTrace(Logs.java:381)
+	at org.eclipse.recommenders.utils.Logs.log(Logs.java:134)
+	at org.eclipse.recommenders.internal.rcp.JavaElementSelections.resolveJavaElementFromTypeRootInEditor(JavaElementSelections.java:164)
+	at org.eclipse.recommenders.internal.rcp.JavaElementSelections.resolveJavaElementFromEditor(JavaElementSelections.java:119)
+	at org.eclipse.recommenders.internal.rcp.JavaElementSelections.resolveJavaElementFromEditor(JavaElementSelections.java:102)
+	at org.eclipse.recommenders.internal.rcp.JavaElementSelectionService.handleSelectionInEditor(JavaElementSelectionService.java:108)
+	at org.eclipse.recommenders.internal.rcp.JavaElementSelectionService.access$1(JavaElementSelectionService.java:105)
+	at org.eclipse.recommenders.internal.rcp.JavaElementSelectionService$1.run(JavaElementSelectionService.java:82)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:522)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:277)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:191)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1153)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.lang.Thread.run(Thread.java:785)

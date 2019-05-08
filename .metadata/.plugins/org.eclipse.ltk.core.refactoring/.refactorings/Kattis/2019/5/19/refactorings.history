@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;nt&apos; in &apos;Spavanac.main(...)&apos; to &apos;newTime&apos;&#x0D;&#x0A;- Original project: &apos;Kattis&apos;&#x0D;&#x0A;- Original element: &apos;Spavanac.main(String[]).nt&apos;&#x0D;&#x0A;- Renamed element: &apos;nt&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;nt&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;{Spavanac.java[Spavanac~main~\[QString;@nt!156!202!196!197!I!0!false" name="newTime" references="true" stamp="1557232236316" version="1.0"/>
+</session>
