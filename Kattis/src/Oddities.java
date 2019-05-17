@@ -16,6 +16,7 @@ public class Oddities {
 			else
 				System.out.println(num[i] + " is odd");
 		}
+		sc.close();
 	}
 
 }
