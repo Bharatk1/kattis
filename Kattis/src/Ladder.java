@@ -7,6 +7,8 @@ public class Ladder {
         double n = sc.nextInt() , d = sc.nextInt();
         System.out.println((int) Math.ceil(n / Math.sin(Math.toRadians(d))));
         sc.close();
+
+        //
     }
 
 }
