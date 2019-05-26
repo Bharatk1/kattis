@@ -55,10 +55,11 @@ public class TwoZeroFourEightProgram {
 			TwoZeroFourEight twoZeroFourEight = new TwoZeroFourEight(firstColumn, secondColumn, thirdColumn,
 					fourthColumn);
 			TwoZeroFourEight move2 = move(move, twoZeroFourEight);
-			System.out.println(move2.getFirstRow());
-			System.out.println(move2.getSecondRow());
-			System.out.println(move2.getThirdRow());
-			System.out.println(move2.getFourthRow());
+			for (int i = 0; i < 4; i++) {
+				System.out.println(move2.getFirstRow().get(i) + " " + move2.getSecondRow().get(i) + " "
+						+ move2.getThirdRow().get(i) + " " + move2.getFourthRow().get(i));
+			}
+			
 		}
 
 	}
@@ -66,20 +67,19 @@ public class TwoZeroFourEightProgram {
 	private static TwoZeroFourEight move(int move, TwoZeroFourEight twoZeroFourEight) {
 		switch (move) {
 		case 0:
-			return left(twoZeroFourEight);
+			return leftOrUp(twoZeroFourEight);
 		case 1:
-			return up(twoZeroFourEight);
+			return leftOrUp(twoZeroFourEight);
 		case 2:
-			return right(twoZeroFourEight);
+			return rightOrDown(twoZeroFourEight);
 		case 3:
-			
-			return down(twoZeroFourEight);
+			return rightOrDown(twoZeroFourEight);
 		default:
 			return twoZeroFourEight;
 		}
 	}
 
-	private static TwoZeroFourEight left(TwoZeroFourEight twoZeroFourEight) {
+	private static TwoZeroFourEight leftOrUp(TwoZeroFourEight twoZeroFourEight) {
 		List<Integer> firstRow = twoZeroFourEight.getFirstRow();
 		List<Integer> secondRow = twoZeroFourEight.getSecondRow();
 		List<Integer> thirdRow = twoZeroFourEight.getThirdRow();
@@ -93,96 +93,99 @@ public class TwoZeroFourEightProgram {
 
 	private static List<Integer> setRowValuesRightMove(List<Integer> row) {
 		List<Integer> updatedRow = new LinkedList<>();
-		if (row.get(2) == row.get(3)) {
-			if (row.get(0) == row.get(1)) {
-				updatedRow.add(0);
-				updatedRow.add(0);
-				updatedRow.add(row.get(0) + row.get(1));
+		updatedRow.add(row.get(3));
+		updatedRow.add(row.get(2));
+		updatedRow.add(row.get(1));
+		updatedRow.add(row.get(0));
 
-			} else {
-				updatedRow.add(0);
-				updatedRow.add(row.get(0));
-				updatedRow.add(row.get(1));
-			}
-			updatedRow.add(row.get(2) + row.get(3));
-
-		} else if (row.get(0) == row.get(2) && row.get(1) == 0) {
-			updatedRow.add(0);
-			updatedRow.add(0);
-			updatedRow.add(row.get(0) + row.get(2));
-			updatedRow.add(row.get(3));
-
-		} else if (row.get(0) == row.get(3) && row.get(1) == 0 && row.get(2) == 0) {
-			updatedRow.add(0);
-			updatedRow.add(0);
-			updatedRow.add(0);
-			updatedRow.add(row.get(0) + row.get(3));
-
-		} else if (row.get(1) == row.get(3) && row.get(0) == 0 && row.get(2) == 0) {
-			updatedRow.add(0);
-			updatedRow.add(0);
-			updatedRow.add(0);
-			updatedRow.add(row.get(1) + row.get(3));
-		} else if (row.get(1) == row.get(2) && row.get(0) == 0 && row.get(3) == 0) {
-			updatedRow.add(0);
-			updatedRow.add(0);
-			updatedRow.add(0);
-			updatedRow.add(row.get(1) + row.get(2));
-
-		} else {
-			return row;
-		}
-		return updatedRow;
+		List<Integer> setRowValuesLeftMove = setRowValuesLeftMove(updatedRow);
+		List<Integer> updatedRowRight = new LinkedList<>();
+		updatedRowRight.add(setRowValuesLeftMove.get(3));
+		updatedRowRight.add(setRowValuesLeftMove.get(2));
+		updatedRowRight.add(setRowValuesLeftMove.get(1));
+		updatedRowRight.add(setRowValuesLeftMove.get(0));
+		return updatedRowRight;
 	}
 
 	private static List<Integer> setRowValuesLeftMove(List<Integer> row) {
 		List<Integer> updatedRow = new LinkedList<>();
-		if (row.get(0) == row.get(1)) {
-			updatedRow.add(row.get(0) + row.get(1));
-			if (row.get(2) == row.get(3)) {
-				updatedRow.add(row.get(2) + row.get(3));
-				updatedRow.add(0);
-				updatedRow.add(0);
-			} else {
-				updatedRow.add(row.get(2));
-				updatedRow.add(row.get(3));
-				updatedRow.add(0);
+		Integer element1 = row.get(0);
+		Integer element2 = row.get(1);
+		Integer element3 = row.get(2);
+		Integer element4 = row.get(3);
+
+		int updateFirstElement = element1;
+		int updateSecondElement = element2;
+		int updateThirdElement = element3;
+		int updateFourthElement = element4;
+		if (element2 == element1 || element2 == 0 || element1 == 0) {
+			updateFirstElement = element2 + element1;
+			updateSecondElement = element3;
+			updateThirdElement = element4;
+			updateFourthElement = 0;
+			if (updateFirstElement == updateSecondElement || (updateFirstElement == 0) || updateSecondElement == 0) {
+				updateFirstElement = updateFirstElement + updateSecondElement;
+				updateSecondElement = updateThirdElement;
+				updateThirdElement = 0;
+
+			}
+			if ((updateFirstElement == updateSecondElement) || updateFirstElement == 0) {
+				updateFirstElement = updateFirstElement + updateSecondElement;
+				updateSecondElement = 0;
+
 			}
 
-		} else if (row.get(0) == row.get(2) && row.get(1) == 0) {
-			updatedRow.add(row.get(0) + row.get(2));
-			updatedRow.add(row.get(3));
-			updatedRow.add(0);
-			updatedRow.add(0);
-		} else if (row.get(0) == row.get(3) && row.get(1) == 0 && row.get(2) == 0) {
-			updatedRow.add(row.get(0) + row.get(3));
-			updatedRow.add(0);
-			updatedRow.add(0);
-			updatedRow.add(0);
-		} else if (row.get(1) == row.get(3) && row.get(0) == 0 && row.get(2) == 0) {
-			updatedRow.add(row.get(1) + row.get(3));
-			updatedRow.add(0);
-			updatedRow.add(0);
-			updatedRow.add(0);
+			updatedRow.add(updateFirstElement);
+			updatedRow.add(updateSecondElement);
+			updatedRow.add(updateThirdElement);
+			updatedRow.add(updateFourthElement);
+			return updatedRow;
 		}
 
-		else if (row.get(1) == row.get(2) && row.get(0) == 0 && row.get(3) == 0) {
-			updatedRow.add(row.get(1) + row.get(2));
-			updatedRow.add(0);
-			updatedRow.add(0);
-			updatedRow.add(0);
+		if (element3 == element4 || element4 == 0 || element3 == 0) {
+			updateThirdElement = element4 + element3;
+			updateFourthElement = 0;
 
-		} else {
-			return row;
+			if (updateThirdElement == element2) {
+				updateSecondElement = element2 + updateThirdElement;
+				updateThirdElement = 0;
+			}
+			if ((element1 == updateSecondElement)) {
+				updateFirstElement = updateSecondElement + element1;
+				updateSecondElement = 0;
+			}
+
+			updatedRow.add(updateFirstElement);
+			updatedRow.add(updateSecondElement);
+			updatedRow.add(updateThirdElement);
+			updatedRow.add(updateFourthElement);
+			return updatedRow;
 		}
-		return updatedRow;
+		if (element3 == element2) {
+			updateSecondElement = element2 + element3;
+			updateThirdElement = element4;
+			updateFourthElement = 0;
+
+			if (updateSecondElement == updateThirdElement) {
+				updateSecondElement = updateSecondElement + updateThirdElement;
+				updateThirdElement = 0;
+			}
+			if (element1 == updateSecondElement) {
+				updateFirstElement = updateSecondElement + element1;
+				updateSecondElement = updateThirdElement;
+				updateThirdElement = 0;
+			}
+
+			updatedRow.add(updateFirstElement);
+			updatedRow.add(updateSecondElement);
+			updatedRow.add(updateThirdElement);
+			updatedRow.add(updateFourthElement);
+			return updatedRow;
+		}
+		return row;
 	}
 
-	private static TwoZeroFourEight up(TwoZeroFourEight twoZeroFourEight) {
-		return null;
-	}
-
-	private static TwoZeroFourEight right(TwoZeroFourEight twoZeroFourEight) {
+	private static TwoZeroFourEight rightOrDown(TwoZeroFourEight twoZeroFourEight) {
 		List<Integer> firstRow = twoZeroFourEight.getFirstRow();
 		List<Integer> secondRow = twoZeroFourEight.getSecondRow();
 		List<Integer> thirdRow = twoZeroFourEight.getThirdRow();
@@ -194,7 +197,4 @@ public class TwoZeroFourEightProgram {
 		return new TwoZeroFourEight(updatedFirstRow, updatedSecondRow, updatedThirdRow, updatedFourthRow);
 	}
 
-	private static TwoZeroFourEight down(TwoZeroFourEight twoZeroFourEight) {
-		return null;
-	}
 }
