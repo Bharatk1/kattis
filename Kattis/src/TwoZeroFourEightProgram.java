@@ -34,10 +34,15 @@ public class TwoZeroFourEightProgram {
 			TwoZeroFourEight twoZeroFourEight = new TwoZeroFourEight(rowList.get(0), rowList.get(1), rowList.get(2),
 					rowList.get(3));
 			TwoZeroFourEight move2 = move(move, twoZeroFourEight);
-			System.out.println(move2.getFirstRow());
-			System.out.println(move2.getSecondRow());
-			System.out.println(move2.getThirdRow());
-			System.out.println(move2.getFourthRow());
+			System.out.println(move2.getFirstRow().get(0) + " " + move2.getFirstRow().get(1) + " "
+					+ move2.getFirstRow().get(2) + " " + move2.getFirstRow().get(3));
+			System.out.println(move2.getSecondRow().get(0) + " " + move2.getSecondRow().get(1) + " "
+					+ move2.getSecondRow().get(2) + " " + move2.getSecondRow().get(3));
+			System.out.println(move2.getThirdRow().get(0) + " " + move2.getThirdRow().get(1) + " "
+					+ move2.getThirdRow().get(2) + " " + move2.getThirdRow().get(3));
+			System.out.println(move2.getFourthRow().get(0) + " " + move2.getFourthRow().get(1) + " "
+					+ move2.getFourthRow().get(2) + " " + move2.getFourthRow().get(3));
+
 		}
 
 		if (move == 1 || move == 3) {
@@ -59,7 +64,7 @@ public class TwoZeroFourEightProgram {
 				System.out.println(move2.getFirstRow().get(i) + " " + move2.getSecondRow().get(i) + " "
 						+ move2.getThirdRow().get(i) + " " + move2.getFourthRow().get(i));
 			}
-			
+
 		}
 
 	}
@@ -109,28 +114,39 @@ public class TwoZeroFourEightProgram {
 
 	private static List<Integer> setRowValuesLeftMove(List<Integer> row) {
 		List<Integer> updatedRow = new LinkedList<>();
-		Integer element1 = row.get(0);
-		Integer element2 = row.get(1);
-		Integer element3 = row.get(2);
-		Integer element4 = row.get(3);
+		int element1 = row.get(0);
+		int element2 = row.get(1);
+		int element3 = row.get(2);
+		int element4 = row.get(3);
 
 		int updateFirstElement = element1;
 		int updateSecondElement = element2;
 		int updateThirdElement = element3;
 		int updateFourthElement = element4;
-		if (element2 == element1 || element2 == 0 || element1 == 0) {
+		if (element1 == element2 || element2 == 0 || element1 == 0) {
 			updateFirstElement = element2 + element1;
 			updateSecondElement = element3;
 			updateThirdElement = element4;
 			updateFourthElement = 0;
-			if (updateFirstElement == updateSecondElement || (updateFirstElement == 0) || updateSecondElement == 0) {
-				updateFirstElement = updateFirstElement + updateSecondElement;
+			if ((updateSecondElement == updateThirdElement) && updateThirdElement == updateFirstElement) {
+				updateFirstElement = updateSecondElement + updateThirdElement;
 				updateSecondElement = updateThirdElement;
+				updateThirdElement = 0;
+			} else if (updateSecondElement == updateThirdElement) {
+				updateSecondElement = updateSecondElement + updateThirdElement;
+				updateThirdElement = 0;
+			}
+			if (updateSecondElement == 0) {
+				if (updateFirstElement == updateThirdElement)
+					updateFirstElement = updateFirstElement + updateThirdElement;
+				else
+					updateSecondElement = updateThirdElement;
 				updateThirdElement = 0;
 
 			}
-			if ((updateFirstElement == updateSecondElement) || updateFirstElement == 0) {
-				updateFirstElement = updateFirstElement + updateSecondElement;
+
+			if (updateFirstElement == 0) {
+				updateFirstElement = updateSecondElement;
 				updateSecondElement = 0;
 
 			}
@@ -142,15 +158,15 @@ public class TwoZeroFourEightProgram {
 			return updatedRow;
 		}
 
-		if (element3 == element4 || element4 == 0 || element3 == 0) {
+		if (element3 == element4 || element3 == 0) {
 			updateThirdElement = element4 + element3;
 			updateFourthElement = 0;
 
-			if (updateThirdElement == element2) {
+			if (updateThirdElement == 0) {
 				updateSecondElement = element2 + updateThirdElement;
 				updateThirdElement = 0;
 			}
-			if ((element1 == updateSecondElement)) {
+			if (element4 == 0) {
 				updateFirstElement = updateSecondElement + element1;
 				updateSecondElement = 0;
 			}
@@ -166,16 +182,10 @@ public class TwoZeroFourEightProgram {
 			updateThirdElement = element4;
 			updateFourthElement = 0;
 
-			if (updateSecondElement == updateThirdElement) {
-				updateSecondElement = updateSecondElement + updateThirdElement;
-				updateThirdElement = 0;
-			}
-			if (element1 == updateSecondElement) {
-				updateFirstElement = updateSecondElement + element1;
+			if (updateSecondElement == 0) {
 				updateSecondElement = updateThirdElement;
 				updateThirdElement = 0;
 			}
-
 			updatedRow.add(updateFirstElement);
 			updatedRow.add(updateSecondElement);
 			updatedRow.add(updateThirdElement);
