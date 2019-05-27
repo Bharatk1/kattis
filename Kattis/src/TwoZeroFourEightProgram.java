@@ -42,7 +42,6 @@ public class TwoZeroFourEightProgram {
 					+ move2.getThirdRow().get(2) + " " + move2.getThirdRow().get(3));
 			System.out.println(move2.getFourthRow().get(0) + " " + move2.getFourthRow().get(1) + " "
 					+ move2.getFourthRow().get(2) + " " + move2.getFourthRow().get(3));
-
 		}
 
 		if (move == 1 || move == 3) {
