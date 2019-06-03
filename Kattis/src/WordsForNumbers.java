@@ -100,6 +100,7 @@ public class WordsForNumbers {
 		// remove extra spaces!
 		return result.replaceAll("^\\s+", "").replaceAll("\\b\\s{2,}\\b", " ");
 	}
+	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		String nextLine = sc.nextLine();
