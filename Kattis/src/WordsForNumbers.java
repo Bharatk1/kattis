@@ -1,9 +1,11 @@
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class WordsForNumbers {
 	private static final String[] tensNames = { "", " ten", " twenty", " thirty", " forty", " fifty", " sixty",
@@ -99,75 +101,90 @@ public class WordsForNumbers {
 		// remove extra spaces!
 		return result.replaceAll("^\\s+", "").replaceAll("\\b\\s{2,}\\b", " ");
 	}
-	public static boolean isStringNumeric( String str )
-	{
-	    DecimalFormatSymbols currentLocaleSymbols = DecimalFormatSymbols.getInstance();
-	    char localeMinusSign = currentLocaleSymbols.getMinusSign();
 
-	    if ( !Character.isDigit( str.charAt( 0 ) ) && str.charAt( 0 ) != localeMinusSign ) return false;
+	public static boolean isStringNumeric(String str) {
+		DecimalFormatSymbols currentLocaleSymbols = DecimalFormatSymbols.getInstance();
+		char localeMinusSign = currentLocaleSymbols.getMinusSign();
 
-	    boolean isDecimalSeparatorFound = false;
-	    char localeDecimalSeparator = currentLocaleSymbols.getDecimalSeparator();
+		if (!Character.isDigit(str.charAt(0)) && str.charAt(0) != localeMinusSign)
+			return false;
 
-	    for ( char c : str.substring( 1 ).toCharArray() )
-	    {
-	        if ( !Character.isDigit( c ) )
-	        {
-	            if ( c == localeDecimalSeparator && !isDecimalSeparatorFound )
-	            {
-	                isDecimalSeparatorFound = true;
-	                continue;
-	            }
-	            return false;
-	        }
-	    }
-	    return true;
-	}
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		String nextLine = sc.nextLine();
-		String[] split =nextLine.split(" ");
-		 
-		 List<String> list = new LinkedList<>();
-		 list.addAll(Arrays.asList(split));
-		 String firstWord = list.get(0);
-		 if(isStringNumeric(firstWord)) {
-			
-			 int parseInt = Integer.parseInt(firstWord);
-			 String firstInteger = convert(parseInt);
-			 
-			 char charAt = firstInteger.charAt(0);
-			 char updated = Character.toUpperCase(charAt);
-			 String finalVal= updated+""+firstInteger.substring(1);
-			 if(finalVal.contains(" ")) {
-					String[] split2 = finalVal.split(" ");	
-					finalVal=split2[0].concat("-").concat(split2[1]);
-					System.out.print(finalVal+" ");
-				}else {
-					System.out.print(finalVal+" ");
+		boolean isDecimalSeparatorFound = false;
+		char localeDecimalSeparator = currentLocaleSymbols.getDecimalSeparator();
+
+		for (char c : str.substring(1).toCharArray()) {
+			if (!Character.isDigit(c)) {
+				if (c == localeDecimalSeparator && !isDecimalSeparatorFound) {
+					isDecimalSeparatorFound = true;
+					continue;
 				}
-					
-		 }else {
-			 System.out.print(firstWord+" ");
-		 }
-		 list.remove(0);
-		 list.forEach(word->{
-			 if(isStringNumeric(word)) {
-				 int parseInt = Integer.parseInt(word);
-				String finalVal=convert(parseInt);
-				 if(finalVal.contains(" ")) {
-						String[] split2 = finalVal.split(" ");	
-						finalVal=split2[0].concat("-").concat(split2[1]);
-						System.out.print(finalVal+" ");
-					}else {
-						System.out.print(finalVal+" ");
-					}
-			 }else {
-				 System.out.print(word+" ");
-			 }
-				 
-		 });
-		 sc.close();
+				return false;
+			}
+		}
+		return true;
 	}
-	
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		String t = " ";
+		List<String> listOfSent = new ArrayList<>();
+		while (t.length() > 0) {
+			t = scan.nextLine();
+			if (t.length() > 0)
+				listOfSent.add(t);
+		}
+		List<String> finalList = new ArrayList<>();
+		listOfSent.forEach(sen -> {
+			String[] split = sen.split(" ");
+
+			List<String> list = new LinkedList<>();
+			list.addAll(Arrays.asList(split));
+			String firstWord = list.get(0);
+			AtomicReference<String> finalSent = new AtomicReference<>("");
+			if (isStringNumeric(firstWord)) {
+
+				int parseInt = Integer.parseInt(firstWord);
+				String firstInteger = convert(parseInt);
+
+				char charAt = firstInteger.charAt(0);
+				char updated = Character.toUpperCase(charAt);
+				String finalVal = updated + "" + firstInteger.substring(1);
+				if (finalVal.contains(" ")) {
+					String[] split2 = finalVal.split(" ");
+					finalVal = split2[0].concat("-").concat(split2[1]);
+					finalSent.set(finalSent.get().concat(finalVal + " "));
+				} else {
+					finalSent.set(finalSent.get().concat(finalVal + " "));
+				}
+
+			} else {
+				finalSent.set(finalSent.get().concat(firstWord + " "));
+			}
+			list.remove(0);
+
+			list.forEach(word -> {
+				if (isStringNumeric(word)) {
+					int parseInt = Integer.parseInt(word);
+					String finalVal = convert(parseInt);
+					if (finalVal.contains(" ")) {
+						String[] split2 = finalVal.split(" ");
+						finalVal = split2[0].concat("-").concat(split2[1]);
+						finalSent.set(finalSent.get().concat(finalVal + " "));
+
+					} else {
+						finalSent.set(finalSent.get().concat(finalVal + " "));
+					}
+				} else {
+					finalSent.set(finalSent.get().concat(word + " "));
+				}
+
+			});
+			finalList.add(finalSent.get());
+		});
+		finalList.stream().forEach(sentence -> {
+			System.out.println(sentence.trim());
+		});
+		scan.close();
+	}
+
 }
